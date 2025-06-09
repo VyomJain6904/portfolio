@@ -22,7 +22,8 @@ export default defineConfig({
     react(), // Enables React components
     sitemap({
       // Generates sitemap
-      serialize: (item) => {
+      serialize: (item) =>
+      {
         const url = item.url.endsWith('/') ? item.url.slice(0, -1) : item.url;
         return { ...item, url };
       },
