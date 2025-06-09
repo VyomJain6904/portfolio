@@ -2,12 +2,12 @@
 
 A modern, responsive **Portfolio Website** to showcase your projects, skills, and professional experience. Built with cutting-edge web technologies for optimal performance and user experience.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/portfolio)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge)](https://your-portfolio.vercel.app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/VyomJain6904/portfolio.git)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge)](https://vyom-xyz.vercel.app/)
 
 ## 🌐 Live Demo
 
-🔗 **[View Live Portfolio](https://vyom-xyz.vercel.app/)**
+🔗 **[View Live](https://vyom-xyz.vercel.app/)**
 
 ---
 
