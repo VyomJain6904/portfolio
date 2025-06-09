@@ -5,12 +5,18 @@ import { getImage } from 'astro:assets';
 import macBackground1 from '../../assets/images/mac-background1.jpg';
 import macBackground2 from '../../assets/images/mac-background3.jpg';
 import macBackground3 from '../../assets/images/mac-background3.jpg';
+import macBackground4 from '../../assets/images/mac-background4.png';
+import macBackground5 from '../../assets/images/mac-background5.jpg';
+import macBackground6 from '../../assets/images/mac-background6.jpeg';
 import { userConfig } from '../../config/userConfig';
 
 const backgrounds = await Promise.all([
   getImage({ src: macBackground1, width: 3500 }),
   getImage({ src: macBackground2, width: 3500 }),
   getImage({ src: macBackground3, width: 3500 }),
+  getImage({ src: macBackground4, width: 3500 }),
+  getImage({ src: macBackground5, width: 3500 }),
+  getImage({ src: macBackground6, width: 3500 }),
 ]);
 ---
 
@@ -43,7 +49,7 @@ const backgrounds = await Promise.all([
 />
 
 <!-- Add your favicon files in public/images/ -->
-<link rel='apple-touch-icon' sizes='180x180' href='https://avatars.githubusercontent.com/u/97130221?s=400&u=aaa4eb0bf9d07b901f0b15df8540fefea2fca729&v=4' />
+<link rel='apple-touch-icon' sizes='180x180' href='https://i.ibb.co/fcnQxGD/me.jpg' />
 <link
   rel='icon'
   type='image/png'
