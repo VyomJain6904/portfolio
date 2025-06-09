@@ -1,9 +1,9 @@
 {
 	"id": "portfolio",
-	"title": "Portfolio (This Website)",
+	"title": "Portfolio",
 	"description": "An open source interactive portfolio website, with a clean and modern design, sections for education, experience, skills, competitions, and more. Built with Astro.js, Tailwind CSS, TypeScript, React, and Vercel.",
 	"repoUrl": "https://github.com/VyomJain6904/portfolio",
-	"liveUrl": "https://aabdoo23.vercel.app",
+	"liveUrl": "",
 	"techStack": ["Astro.js", "Tailwind CSS", "TypeScript", "React", "Vercel"],
 	"structure": {
 		"root": "portfolio",
@@ -271,6 +271,18 @@
 										"type": "file"
 									},
 									{
+										"name": "mac-background4.png",
+										"type": "file"
+									},
+									{
+										"name": "mac-background5.jpg",
+										"type": "file"
+									},
+									{
+										"name": "mac-background6.jpeg",
+										"type": "file"
+									},
+									{
 										"name": "projects",
 										"type": "directory",
 										"children": [
@@ -355,10 +367,6 @@
 									{
 										"name": "ResumeViewer.tsx",
 										"type": "file"
-									},
-									{
-										"name": "SpotifyPlayer.tsx",
-										"type": "file"
 									}
 								]
 							}
@@ -373,39 +381,27 @@
 								"type": "directory",
 								"children": [
 									{
-										"name": "clinicalmain.json",
+										"name": "auth.json",
 										"type": "file"
 									},
 									{
-										"name": "fadedtextrestoration.json",
+										"name": "findit-web.json",
 										"type": "file"
 									},
 									{
-										"name": "foodies.json",
+										"name": "findit.json",
 										"type": "file"
 									},
 									{
-										"name": "neurospeccompanionmerged.json",
+										"name": "network-scanner.json",
 										"type": "file"
 									},
 									{
-										"name": "nucpa-balloons.json",
-										"type": "file"
-									},
-									{
-										"name": "nucpaballoonsapi.json",
+										"name": "vd-shoppers.json",
 										"type": "file"
 									},
 									{
 										"name": "portfolio.json",
-										"type": "file"
-									},
-									{
-										"name": "scheds.json",
-										"type": "file"
-									},
-									{
-										"name": "seatreservation.json",
 										"type": "file"
 									}
 								]
@@ -487,21 +483,6 @@
 			"url": "https://i.ibb.co/gbNxMqmP/B5-BE581-F-2-C7-C-48-A8-9-E7-C-77073-BEB66-AF.png",
 			"alt": "Portfolio",
 			"description": "Portfolio"
-		},
-		{
-			"url": "https://i.ibb.co/FdTHqhM/68-D528-EE-07-BF-4406-8363-08-B2-CFB7-A381.png",
-			"alt": "Portfolio",
-			"description": "Projects Page"
-		},
-		{
-			"url": "https://i.ibb.co/TBDmDtX8/495-DAF06-BC3-D-424-B-A8-FA-7-BEE852-B5012.png",
-			"alt": "Portfolio",
-			"description": "Project Page"
-		},
-		{
-			"url": "https://i.ibb.co/qFNw99gR/D1-CD7826-84-EF-42-AC-BA40-55766-D792771.png",
-			"alt": "Portfolio",
-			"description": "Notes App"
 		}
 	]
 }

@@ -1,0 +1,102 @@
+{
+	"id": "findit",
+	"title": "FindIt - CLI Domain Reconnaissance Toolkit",
+	"description": "FindIt is a CLI-based domain reconnaissance tool built in Python. It automates the process of gathering intelligence about a target domain by retrieving DNS records, performing zone transfers, reverse lookups, parsing robots.txt/sitemap.xml, and analyzing HTTP headers and SSL/TLS certificates.",
+	"repoUrl": "https://github.com/VyomJain6904/findit",
+	"liveUrl": "",
+	"techStack": ["Python", "Requests", "dnspython", "socket", "subprocess", "Click"],
+	"structure": {
+		"root": "findit",
+		"children": [
+			{
+				"name": "README.md",
+				"type": "file"
+			},
+			{
+				"name": "requirements.txt",
+				"type": "file"
+			},
+			{
+				"name": "findit",
+				"type": "directory",
+				"children": [
+					{
+						"name": "__init__.py",
+						"type": "file"
+					},
+					{
+						"name": "main.py",
+						"type": "file"
+					},
+					{
+						"name": "utils",
+						"type": "directory",
+						"children": [
+							{
+								"name": "dns_lookup.py",
+								"type": "file"
+							},
+							{
+								"name": "http_headers.py",
+								"type": "file"
+							},
+							{
+								"name": "ssl_info.py",
+								"type": "file"
+							},
+							{
+								"name": "robots_parser.py",
+								"type": "file"
+							},
+							{
+								"name": "ip_finder.py",
+								"type": "file"
+							},
+							{
+								"name": "zone_transfer.py",
+								"type": "file"
+							},
+							{
+								"name": "reverse_dns.py",
+								"type": "file"
+							},
+							{
+								"name": "subdomain_finder.py",
+								"type": "file"
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "tests",
+				"type": "directory",
+				"children": [
+					{
+						"name": "test_dns_lookup.py",
+						"type": "file"
+					},
+					{
+						"name": "test_http_headers.py",
+						"type": "file"
+					}
+				]
+			},
+			{
+				"name": ".gitignore",
+				"type": "file"
+			},
+			{
+				"name": ".env",
+				"type": "file"
+			}
+		]
+	},
+	"images": [
+		{
+			"url": "https://i.ibb.co/R4H70sC6/placeholder.png",
+			"alt": "placeholder.png",
+			"description": "FindIt"
+		}
+	]
+}

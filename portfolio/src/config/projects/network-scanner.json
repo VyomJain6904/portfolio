@@ -1,0 +1,31 @@
+{
+	"id": "network-scanner-tool",
+	"title": "Network Scanner Tool",
+	"description": "A Python-based network scanning utility designed to identify active devices and open ports within a given IP range. Ideal for penetration testers and network administrators.",
+	"repoUrl": "https://github.com/VyomJain6904/Network_Scanner-Tool.git",
+	"liveUrl": "",
+	"techStack": ["Python", "socket", "argparse"],
+	"structure": {
+		"root": "network-scanner-tool",
+		"children": [
+			{
+				"name": "LICENSE",
+				"type": "file"
+			},
+			{
+				"name": "Network-Scanner.py",
+				"type": "file"
+			},
+			{
+				"name": "README.md",
+				"type": "file"
+			}
+		]
+	},
+	"images": [
+		{
+			"url": "https://i.ibb.co/JwhnGbS9/Screenshot-2023-12-04-132404.png",
+			"alt": "Network-Scanner"
+		}
+	]
+}

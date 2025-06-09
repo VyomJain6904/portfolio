@@ -1,0 +1,192 @@
+{
+	"id": "findit-web",
+	"title": "FindIt - Web Reconnaissance Platform",
+	"description": "FindIt is a powerful domain reconnaissance web application that collects and displays detailed information about a target domain, including DNS records, IP details, reverse DNS, HTTP headers, SSL/TLS info, and more. Built with Next.js, TypeScript, Tailwind CSS, Prisma, and Node.js.",
+	"repoUrl": "https://github.com/VyomJain6904/findit-web.git",
+	"liveUrl": "https://findit-tau.vercel.app/",
+	"techStack": [
+		"Next.js",
+		"React",
+		"TypeScript",
+		"Tailwind CSS",
+		"Prisma",
+		"Node.js",
+		"PostgreSQL"
+	],
+	"structure": {
+		"root": "findit-web",
+		"children": [
+			{
+				"name": "README.md",
+				"type": "file"
+			},
+			{
+				"name": "next.config.mjs",
+				"type": "file"
+			},
+			{
+				"name": "tailwind.config.ts",
+				"type": "file"
+			},
+			{
+				"name": "tsconfig.json",
+				"type": "file"
+			},
+			{
+				"name": "package.json",
+				"type": "file"
+			},
+			{
+				"name": "prisma",
+				"type": "directory",
+				"children": [
+					{
+						"name": "schema.prisma",
+						"type": "file"
+					},
+					{
+						"name": "seed.ts",
+						"type": "file"
+					}
+				]
+			},
+			{
+				"name": "public",
+				"type": "directory",
+				"children": [
+					{
+						"name": "favicon.ico",
+						"type": "file"
+					},
+					{
+						"name": "robots.txt",
+						"type": "file"
+					},
+					{
+						"name": "sitemap.xml",
+						"type": "file"
+					}
+				]
+			},
+			{
+				"name": "src",
+				"type": "directory",
+				"children": [
+					{
+						"name": "app",
+						"type": "directory",
+						"children": [
+							{
+								"name": "layout.tsx",
+								"type": "file"
+							},
+							{
+								"name": "page.tsx",
+								"type": "file"
+							}
+						]
+					},
+					{
+						"name": "pages",
+						"type": "directory",
+						"children": [
+							{
+								"name": "api",
+								"type": "directory",
+								"children": [
+									{
+										"name": "scan.ts",
+										"type": "file"
+									},
+									{
+										"name": "subdomain.ts",
+										"type": "file"
+									},
+									{
+										"name": "headers.ts",
+										"type": "file"
+									}
+								]
+							}
+						]
+					},
+					{
+						"name": "components",
+						"type": "directory",
+						"children": [
+							{
+								"name": "DomainCard.tsx",
+								"type": "file"
+							},
+							{
+								"name": "ScanResults.tsx",
+								"type": "file"
+							},
+							{
+								"name": "Header.tsx",
+								"type": "file"
+							},
+							{
+								"name": "LoadingSpinner.tsx",
+								"type": "file"
+							}
+						]
+					},
+					{
+						"name": "styles",
+						"type": "directory",
+						"children": [
+							{
+								"name": "globals.css",
+								"type": "file"
+							}
+						]
+					},
+					{
+						"name": "lib",
+						"type": "directory",
+						"children": [
+							{
+								"name": "dnsUtils.ts",
+								"type": "file"
+							},
+							{
+								"name": "ipUtils.ts",
+								"type": "file"
+							},
+							{
+								"name": "sslUtils.ts",
+								"type": "file"
+							}
+						]
+					},
+					{
+						"name": "types",
+						"type": "directory",
+						"children": [
+							{
+								"name": "domain.ts",
+								"type": "file"
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": ".env",
+				"type": "file"
+			},
+			{
+				"name": ".gitignore",
+				"type": "file"
+			}
+		]
+	},
+	"images": [
+		{
+			"url": "https://i.ibb.co/ymdLJVjc/Screenshot-2025-06-09-100444.png",
+			"alt": "FindIt",
+			"description": "FindIt"
+		}
+	]
+}

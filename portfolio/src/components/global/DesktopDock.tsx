@@ -1,17 +1,18 @@
 import { useState, useEffect, useRef } from "react";
-import {
-	BsGithub,
-	BsSpotify,
-	BsFilePdf,
-	BsStickyFill,
-	BsLinkedin,
-	BsCalendar,
-} from "react-icons/bs";
+import { BsGithub, BsFilePdf, BsStickyFill, BsLinkedin, BsCalendar } from "react-icons/bs";
 import { IoIosCall, IoIosMail } from "react-icons/io";
-import { FaLink, FaEnvelope } from "react-icons/fa";
+import { FaLink } from "react-icons/fa";
+import { RiTerminalFill } from "react-icons/ri";
+import {
+	AnimatePresence,
+	MotionValue,
+	motion,
+	useMotionValue,
+	useSpring,
+	useTransform,
+} from "motion/react";
 import ResumeViewer from "./ResumeViewer";
 import { userConfig } from "../../config/userConfig";
-import { RiTerminalFill } from "react-icons/ri";
 
 interface DesktopDockProps {
 	onTerminalClick: () => void;
@@ -22,9 +23,72 @@ interface DesktopDockProps {
 		notes: boolean;
 		github: boolean;
 		resume: boolean;
-		spotify: boolean;
 	};
 }
+
+interface DockIconProps {
+	mouseX: MotionValue;
+	onClick: () => void;
+	icon: React.ReactNode;
+	title: string;
+	gradient: string;
+	isActive?: boolean;
+}
+
+const DockIcon = ({ mouseX, onClick, icon, title, gradient, isActive }: DockIconProps) => {
+	const ref = useRef<HTMLDivElement>(null);
+	const [hovered, setHovered] = useState(false);
+
+	const distance = useTransform(mouseX, (val) => {
+		const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+		return val - bounds.x - bounds.width / 2;
+	});
+
+	const widthTransform = useTransform(distance, [-150, 0, 150], [48, 80, 48]);
+	const heightTransform = useTransform(distance, [-150, 0, 150], [48, 80, 48]);
+
+	const width = useSpring(widthTransform, {
+		mass: 0.1,
+		stiffness: 150,
+		damping: 12,
+	});
+	const height = useSpring(heightTransform, {
+		mass: 0.1,
+		stiffness: 150,
+		damping: 12,
+	});
+
+	return (
+		<motion.div
+			ref={ref}
+			style={{ width, height }}
+			onMouseEnter={() => setHovered(true)}
+			onMouseLeave={() => setHovered(false)}
+			onClick={onClick}
+			className="relative cursor-pointer"
+		>
+			<AnimatePresence>
+				{hovered && (
+					<motion.div
+						initial={{ opacity: 0, y: 10, x: "-50%" }}
+						animate={{ opacity: 1, y: 0, x: "-50%" }}
+						exit={{ opacity: 0, y: 2, x: "-50%" }}
+						className="absolute -top-8 left-1/2 bg-black/80 text-white px-2 py-1 rounded text-sm whitespace-nowrap z-50"
+					>
+						{title}
+					</motion.div>
+				)}
+			</AnimatePresence>
+			<motion.div
+				className={`w-full h-full ${gradient} rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ease-out active:scale-95 ${
+					isActive ? "ring-2 ring-white/50" : ""
+				}`}
+			>
+				{icon}
+			</motion.div>
+		</motion.div>
+	);
+};
 
 const DesktopDock = ({
 	onTerminalClick,
@@ -32,22 +96,17 @@ const DesktopDock = ({
 	onGitHubClick,
 	activeApps,
 }: DesktopDockProps) => {
-	const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 	const [showResume, setShowResume] = useState(false);
-	const [showSpotify, setShowSpotify] = useState(false);
 	const [showLinksPopup, setShowLinksPopup] = useState(false);
 	const linksPopupRef = useRef<HTMLDivElement>(null);
+	const mouseX = useMotionValue(Infinity);
 
 	const handleLinksClick = () => {
 		setShowLinksPopup(!showLinksPopup);
 	};
 
 	const handleCalendarClick = () => {
-		window.open(userConfig.contact.calendly, "_blank");
-	};
-
-	const handleSpotifyClick = () => {
-		setShowSpotify(true);
+		window.open(userConfig.contact.calendly, "https://calendly.com/vyom-malo6904");
 	};
 
 	const handleResumeClick = () => {
@@ -58,12 +117,8 @@ const DesktopDock = ({
 		setShowResume(false);
 	};
 
-	const handleCloseSpotify = () => {
-		setShowSpotify(false);
-	};
-
 	const handleEmailClick = () => {
-		window.open(`mailto:${userConfig.contact.email}`, "_blank");
+		window.open(`mailto:${userConfig.contact.email}`, "vyom.malo6904@gmail.com");
 	};
 
 	useEffect(() => {
@@ -79,16 +134,10 @@ const DesktopDock = ({
 		};
 	}, []);
 
-	const Tooltip = ({ text }: { text: string }) => (
-		<div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-2 py-1 rounded text-sm whitespace-nowrap">
-			{text}
-		</div>
-	);
-
 	const LinksPopup = () => (
 		<div
 			ref={linksPopupRef}
-			className="absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-gray-800/90 w-30 backdrop-blur-sm rounded-lg p-4 shadow-xl"
+			className="absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-gray-800/90 w-30 backdrop-blur-sm rounded-lg p-4 shadow-xl z-50"
 		>
 			<div className="grid grid-cols-1 gap-y-2">
 				<a
@@ -130,136 +179,83 @@ const DesktopDock = ({
 	return (
 		<>
 			<div className="fixed bottom-0 left-0 right-0 hidden md:flex justify-center pb-4 z-100">
-				<div className="bg-gray-600/50 backdrop-blur-sm rounded-2xl p-2 shadow-xl">
-					<div className="flex space-x-2">
+				<motion.div
+					onMouseMove={(e) => mouseX.set(e.pageX)}
+					onMouseLeave={() => mouseX.set(Infinity)}
+				>
+					<div className="flex space-x-2 items-end">
 						{/* GitHub */}
-						<button
+						<DockIcon
+							mouseX={mouseX}
 							onClick={onGitHubClick}
-							onMouseEnter={() => setHoveredIcon("github")}
-							onMouseLeave={() => setHoveredIcon(null)}
-							className="relative group"
-						>
-							<div
-								className={`w-12 h-12 bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ease-out hover:scale-110 active:scale-95 ${
-									activeApps.github ? "ring-2 ring-white/50" : ""
-								}`}
-							>
-								<BsGithub size={35} className="text-gray-100" />
-							</div>
-							{hoveredIcon === "github" && <Tooltip text="My Projects" />}
-						</button>
+							icon={<BsGithub size={35} className="text-gray-100" />}
+							title="My Projects"
+							gradient="bg-gradient-to-t from-black to-black/60"
+							isActive={activeApps.github}
+						/>
 
 						{/* Notes */}
-						<button
+						<DockIcon
+							mouseX={mouseX}
 							onClick={onNotesClick}
-							onMouseEnter={() => setHoveredIcon("notes")}
-							onMouseLeave={() => setHoveredIcon(null)}
-							className="relative group"
-						>
-							<div
-								className={`w-12 h-12 bg-gradient-to-t from-yellow-600 to-yellow-400 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ease-out hover:scale-110 active:scale-95 ${
-									activeApps.notes ? "ring-2 ring-white/50" : ""
-								}`}
-							>
-								<BsStickyFill size={35} className="text-white" />
-							</div>
-							{hoveredIcon === "notes" && <Tooltip text="Resume Notes" />}
-						</button>
+							icon={<BsStickyFill size={35} className="text-white" />}
+							title="Notes"
+							gradient="bg-gradient-to-t from-yellow-600 to-yellow-400"
+							isActive={activeApps.notes}
+						/>
 
 						{/* Resume */}
-						<button
+						<DockIcon
+							mouseX={mouseX}
 							onClick={handleResumeClick}
-							onMouseEnter={() => setHoveredIcon("resume")}
-							onMouseLeave={() => setHoveredIcon(null)}
-							className="relative group"
-						>
-							<div
-								className={`w-12 h-12 bg-gradient-to-t from-red-600 to-red-400 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ease-out hover:scale-110 active:scale-95 ${
-									activeApps.resume ? "ring-2 ring-white/50" : ""
-								}`}
-							>
-								<BsFilePdf size={35} className="text-white" />
-							</div>
-							{hoveredIcon === "resume" && <Tooltip text="View Resume" />}
-						</button>
+							icon={<BsFilePdf size={35} className="text-white" />}
+							title="View Resume"
+							gradient="bg-gradient-to-t from-red-600 to-red-400"
+							isActive={activeApps.resume}
+						/>
 
 						{/* Calendar */}
-						<button
+						<DockIcon
+							mouseX={mouseX}
 							onClick={handleCalendarClick}
-							onMouseEnter={() => setHoveredIcon("calendar")}
-							onMouseLeave={() => setHoveredIcon(null)}
-							className="relative"
-						>
-							<div className="w-12 h-12 bg-gradient-to-t from-blue-600 to-blue-400 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ease-out hover:scale-110 active:scale-95">
-								<BsCalendar size={30} className="text-white" />
-							</div>
-							{hoveredIcon === "calendar" && <Tooltip text="Schedule a Call" />}
-						</button>
-
-						{/* Spotify */}
-						<button
-							onClick={handleSpotifyClick}
-							onMouseEnter={() => setHoveredIcon("spotify")}
-							onMouseLeave={() => setHoveredIcon(null)}
-							className="relative"
-						>
-							<div
-								className={`w-12 h-12 bg-gradient-to-t from-green-600 to-green-400 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ease-out hover:scale-110 active:scale-95 ${
-									activeApps.spotify ? "ring-2 ring-white/50" : ""
-								}`}
-							>
-								<BsSpotify size={35} className="text-white" />
-							</div>
-							{hoveredIcon === "spotify" && <Tooltip text="Spotify Playlist" />}
-						</button>
+							icon={<BsCalendar size={30} className="text-white" />}
+							title="Schedule a Call"
+							gradient="bg-gradient-to-t from-blue-600 to-blue-400"
+						/>
 
 						{/* Email */}
-						<button
+						<DockIcon
+							mouseX={mouseX}
 							onClick={handleEmailClick}
-							onMouseEnter={() => setHoveredIcon("email")}
-							onMouseLeave={() => setHoveredIcon(null)}
-							className="relative"
-						>
-							<div className="w-12 h-12 bg-gradient-to-t from-blue-600 to-blue-400 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ease-out hover:scale-110 active:scale-95">
-								<IoIosMail size={40} className="text-white" />
-							</div>
-							{hoveredIcon === "email" && <Tooltip text="Email" />}
-						</button>
+							icon={<IoIosMail size={40} className="text-white" />}
+							title="Email"
+							gradient="bg-gradient-to-t from-blue-600 to-blue-400"
+						/>
 
 						{/* Links */}
-						<button
-							onClick={handleLinksClick}
-							onMouseEnter={() => setHoveredIcon("links")}
-							onMouseLeave={() => setHoveredIcon(null)}
-							className="relative"
-						>
-							<div className="w-12 h-12 bg-gradient-to-t from-purple-600 to-purple-400 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ease-out hover:scale-110 active:scale-95">
-								<FaLink size={30} className="text-white" />
-							</div>
-							{hoveredIcon === "links" && <Tooltip text="Contact Links" />}
+						<div className="relative">
+							<DockIcon
+								mouseX={mouseX}
+								onClick={handleLinksClick}
+								icon={<FaLink size={30} className="text-white" />}
+								title="Contact Links"
+								gradient="bg-gradient-to-t from-purple-600 to-purple-400"
+							/>
 							{showLinksPopup && <LinksPopup />}
-						</button>
+						</div>
 
 						{/* Terminal */}
-						<button
+						<DockIcon
+							mouseX={mouseX}
 							onClick={onTerminalClick}
-							onMouseEnter={() => setHoveredIcon("terminal")}
-							onMouseLeave={() => setHoveredIcon(null)}
-							className="relative"
-						>
-							<div
-								className={`w-12 h-12 bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ease-out hover:scale-110 active:scale-95 ${
-									activeApps.terminal ? "ring-2 ring-white/50" : ""
-								}`}
-							>
-								<RiTerminalFill size={35} className="text-white" />
-							</div>
-							{hoveredIcon === "terminal" && <Tooltip text="Terminal" />}
-						</button>
+							icon={<RiTerminalFill size={35} className="text-white" />}
+							title="Terminal"
+							gradient="bg-gradient-to-t from-black to-black/60"
+							isActive={activeApps.terminal}
+						/>
 					</div>
-				</div>
+				</motion.div>
 			</div>
-
 			<ResumeViewer isOpen={showResume} onClose={handleCloseResume} />
 		</>
 	);
