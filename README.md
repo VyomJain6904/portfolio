@@ -25,7 +25,7 @@ A modern, responsive **Portfolio Website** to showcase your projects, skills, an
 
 ## 📁 Project Structure
 
-````
+```
 PORTFOLIO/
 ├── 📁 .git
 ├── 📁 .venv
@@ -62,6 +62,8 @@ PORTFOLIO/
 ├── 📄 tailwind.config.js
 └── 📄 README.md
 
+```
+
 ---
 
 ### Prerequisites
@@ -74,7 +76,7 @@ PORTFOLIO/
 ```bash
 git clone https://github.com/VyomJain6904/portfolio.git
 cd portfolio
-````
+```
 
 ### 2. Install Dependencies
 
