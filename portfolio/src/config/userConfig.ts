@@ -170,6 +170,45 @@ export const userConfig = {
 		},
 	],
 
+	blogs: [
+		{
+			title: "Port Swigger Labs Walkthrough",
+			description: "Detailed Walkthrough of Port Swigger Labs",
+			source: "Notion",
+			url: "https://vyomjain.notion.site/Port-Swigger-Labs-1bcc8de778828008b9f1f5fdfa2d229c",
+			images: [
+				{
+					url: "https://external-preview.redd.it/opinions-on-portswigger-academy-v0-T-t_fiSO-Z2tmGSjAuIKTXl3pu9wEAYHXRaeL9TvRgA.jpg?width=1080&crop=smart&auto=webp&s=916881908dcf2b3dbcbfed6843c00d31d4ff6ca7",
+					alt: "PortSwigger",
+				},
+			],
+		},
+		{
+			title: "Pwned Labs Walkthrough",
+			description: "Detailed Walkthrough of Pwned Labs",
+			source: "Notion",
+			url: "https://vyomjain.notion.site/PWNED-Labs-14ac8de7788280a58245e041484727a8",
+			images: [
+				{
+					url: "https://i.ibb.co/F4hVQSm5/Screenshot-2024-12-16-112828.png",
+					alt: "Pwned Labs",
+				},
+			],
+		},
+		{
+			title: "Amazon Web Services (AWS)",
+			description: "Deep dive into Amazon Web Services (AWS) Services",
+			source: "Notion",
+			url: "https://vyomjain.notion.site/AWS-145c8de7788280599f67d6d11ab45df4",
+			images: [
+				{
+					url: "https://pendulum-it.com/wp-content/uploads/2020/05/AWS-logo.png",
+					alt: "AWS",
+				},
+			],
+		},
+	],
+
 	skills: [
 		// Programming Languages
 		"Python",

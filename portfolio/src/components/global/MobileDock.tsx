@@ -1,4 +1,4 @@
-import { BsGithub, BsSpotify, BsLinkedin } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { IoIosMail, IoIosCall } from "react-icons/io";
 import { userConfig } from "../../config/userConfig";
 import { BsStickyFill } from "react-icons/bs";

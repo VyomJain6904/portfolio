@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { FaRegFolderClosed } from "react-icons/fa6";
 import { userConfig } from "../../config/userConfig";
 import DraggableWindow from "./DraggableWindow";
 
