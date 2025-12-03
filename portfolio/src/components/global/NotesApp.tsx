@@ -308,7 +308,7 @@ const NotesApp = ({ isOpen, onClose }: NotesAppProps) => {
 				y: Math.floor(window.innerHeight * 0.2),
 			}}
 			className="w-[93vw] md:max-w-4xl max-h-[90vh] flex flex-col"
-			initialSize={{ width: 700, height: 600 }}
+			initialSize={{ width: 1000, height: 600 }}
 		>
 			<div className="flex flex-col flex-grow min-h-0 h-full">
 				<div className="overflow-y-auto flex-grow min-h-0 p-4 md:p-6">

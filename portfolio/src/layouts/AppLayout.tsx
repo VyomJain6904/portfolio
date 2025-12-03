@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+
 import MacToolbar from "../components/global/MacToolbar";
 import MacTerminal from "../components/global/MacTerminal";
 import MobileDock from "../components/global/MobileDock";
@@ -37,12 +38,14 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
 
 	useEffect(() => {
 		const lastBg = localStorage.getItem("lastBackground");
-		const hasCompletedTutorial = localStorage.getItem("hasCompletedTutorial") === "true";
+		const hasCompletedTutorial =
+			localStorage.getItem("hasCompletedTutorial") === "true";
 
 		if (lastBg === initialBg) {
 			const bgKeys = Object.keys(backgroundMap);
 			const availableBgs = bgKeys.filter((bg) => bg !== lastBg);
-			const newBg = availableBgs[Math.floor(Math.random() * availableBgs.length)];
+			const newBg =
+				availableBgs[Math.floor(Math.random() * availableBgs.length)];
 			setCurrentBg(newBg);
 		}
 
@@ -65,7 +68,7 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
 		{
 			title: "Welcome to My Portfolio! 👋",
 			content:
-				"This is a macOS-inspired portfolio where you can explore my work and experience. Let me guide you through some of the features!",
+				"This is my portfolio where you can explore my work and experience. Let me guide you through some of the features!",
 			action: () => setShowNotes(true),
 			buttonText: "Let's Begin",
 		},
@@ -225,7 +228,8 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
 						</p>
 						<div className="flex justify-between items-center">
 							<span className="text-xs text-gray-400">
-								{currentTutorialStep + 1} of {tutorialSteps.length}
+								{currentTutorialStep + 1} of{" "}
+								{tutorialSteps.length}
 							</span>
 							<button
 								onClick={handleTutorialAction}

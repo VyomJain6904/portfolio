@@ -192,7 +192,9 @@ export default function MacToolbar({ onTerminalClick, onShowTutorial }: MacToolb
 				onTerminalClick={onTerminalClick}
 			/>
 			<div className="sticky top-0 z-50 md:hidden bg-transparent text-white h-12 px-8 flex items-center justify-between text-base font-medium">
-				<span className="font-semibold">{formatIPhoneTime(currentDateTime)}</span>
+				<span className="font-semibold">
+					{formatIPhoneTime(currentDateTime)}
+				</span>
 				<div className="flex items-center gap-1.5">
 					<IoCellular size={20} />
 					<MdWifi size={20} />
@@ -212,11 +214,11 @@ export default function MacToolbar({ onTerminalClick, onShowTutorial }: MacToolb
 							{userConfig.name}
 						</span>
 						{showSignature && (
-							<div className="absolute top-full left-0 mt-1 bg-white/98 backdrop-blur-sm rounded-lg p-4 shadow-xl z-[100]">
+							<div className="absolute top-full left-0 mt-2 backdrop-blur-sm shadow-xl z-[100]">
 								<img
-									src="/src/assets/images/me.svg"
-									alt="Signature"
-									className="w-[100px] h-[100px]"
+									src="me.jpg"
+									alt="VyomJain"
+									className="w-[1000px] h-[100px] rounded-xl"
 								/>
 							</div>
 						)}
@@ -242,7 +244,9 @@ export default function MacToolbar({ onTerminalClick, onShowTutorial }: MacToolb
 					/>
 					<MdWifi size={16} />
 					<IoSearchSharp size={16} />
-					<span className="cursor-default">{formatMacDate(currentDateTime)}</span>
+					<span className="cursor-default">
+						{formatMacDate(currentDateTime)}
+					</span>
 				</div>
 			</div>
 		</>

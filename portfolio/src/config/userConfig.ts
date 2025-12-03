@@ -2,18 +2,18 @@ import auth from "./projects/auth.json";
 import networkScanner from "./projects/network-scanner.json";
 import findit from "./projects/findit.json";
 import finditWebFrontend from "./projects/findit-web.json";
-import vdShoppers from "./projects/vd-shoppers.json";
-import portfolio from "./projects/portfolio.json";
+import  pentestMcpServer from "./projects/pentest-mcp-server.json";
 
 export const userConfig = {
 	// Personal Information
-	name: "Vyom Maloo",
-	role: "Cyber Security - Full-Stack Developer",
+	name: "Vyom Jain",
+	role: "Security Engineer",
 	location: "India",
 	email: "vyom.malo6904@gmail.com",
 	website: "Vyom Jain",
+    image : "me.jpg",
 	roleFocus:
-		"Web & Mobile Application Penetration Testing, Network Security, Cloud Security (AWS), Full-Stack Development (Next.js, React, Node.js), Backend APIs (Express, FastAPI), DevOps (Docker), Cybersecurity Automation (Python, Go)",
+		"Web & Mobile Application Penetration Testing, Network Security, Cloud Security (AWS), DevOps (Docker), Cybersecurity Automation (Python, Go, Rust)",
 	age: 20,
 
 	// Social Links
@@ -31,7 +31,7 @@ export const userConfig = {
 
 	// Resume Configuration
 	resume: {
-		url: "https://drive.google.com/file/d/1noGfpDxnMTXNrdMHb3i3_wnv_Na4ewOL/view?usp=drive_link",
+		url: "https://drive.google.com/file/d/1VUBmkMNgxDyGxrPhBQEVEMOrOv0Ly06Y/view?usp=sharing",
 		localPath: "/resume.pdf",
 	},
 
@@ -44,11 +44,11 @@ export const userConfig = {
 			location: "Vadodara , India",
 			year: "2022-2026",
 			description:
-				"Relevant coursework: Data Structures, Algorithms, Operating Systems, Computer Networks, Web Development, Database Management Systems, Software Engineering, Cloud Security, Cryptography, Vulnerability Assessment & Penetration Testing (VAPT), Digital Forensics & Incident Response, Cybersecurity, Ethical Hacking, Computer Architecture, Linux System Programming.",
+				"Relevant coursework: Operating Systems, Computer Networks, Web Development, Database Management Systems, Cloud Security, Cryptography, Vulnerability Assessment & Penetration Testing (VAPT), Digital Forensics & Incident Response, Cybersecurity, Ethical Hacking, Computer Architecture, Linux System Programming, Treat Hunting",
 			images: [
 				{
 					url: "https://paruluniversity.ac.in/pu-web/images/logo.png",
-					alt: "vyom",
+					alt: "parul",
 					description: "Parul University",
 				},
 			],
@@ -202,8 +202,20 @@ export const userConfig = {
 			url: "https://vyomjain.notion.site/AWS-145c8de7788280599f67d6d11ab45df4",
 			images: [
 				{
-					url: "https://pendulum-it.com/wp-content/uploads/2020/05/AWS-logo.png",
+					url: "https://avatars.githubusercontent.com/u/224077?s=200&v=4",
 					alt: "AWS",
+				},
+			],
+		},
+		{
+			title: "Writups & Walkthroughs",
+			description: "Labs and CTF's Walkthroughs",
+			source: "Notion",
+			url: "https://vyomjain.notion.site/Labs-27fc8de778828037aa8ee80a72c5ce21?pvs=74",
+			images: [
+				{
+					url: "https://www.hackthebox.com/images/landingv3/mega-menu-logo-htb.svg",
+					alt: "Labs",
 				},
 			],
 		},
@@ -211,11 +223,11 @@ export const userConfig = {
 
 	skills: [
 		// Programming Languages
+		"C",
 		"Python",
 		"JavaScript",
-		"TypeScript",
 		"Go (Golang)",
-		"Java",
+		"Rust",
 
 		// Web & Frameworks
 		"Next.js",
@@ -239,14 +251,18 @@ export const userConfig = {
 		// Cybersecurity Tools & Concepts
 		"VAPT",
 		"Web VAPT",
+		"Mobile Application VAPT",
 		"Burp Suite",
 		"Nmap",
 		"Wireshark",
 		"Metasploit",
-		"Kali Linux",
 		"Digital Forensics",
 		"Incident Response",
 		"Linux System Administration",
+		"Threat Hunting",
+		"Splunk",
+		"Active Directory",
+		"and more...",
 
 		// DevOps & Deployment
 		"Docker",
@@ -257,21 +273,18 @@ export const userConfig = {
 
 	// SEO Configuration
 	seo: {
-		title: "Vyom Maloo - Cyber security & Full Stack Developer",
+		title: "Vyom Jain - Security Engineer",
 		description:
-			"Cyber security & Full Stack Developer based in India, specializing in Web & Mobile Pentesting, React, Next.js, Node.js, Python, and Cloud Security.",
+			"Security Engineer based in India, specializing in Cloud Security and Red Teaming.",
 		keywords: [
 			"Cybersecurity",
 			"Penetration Testing",
 			"Full Stack Developer",
-			"React",
-			"Next.js",
-			"Node.js",
-			"Python",
-			"Web Development",
 			"Cloud Security",
 			"AWS",
 			"Vyom Maloo",
+			"Vyom Jain",
+			"Security Engineer",
 			"India",
 		],
 	},
@@ -284,5 +297,11 @@ export const userConfig = {
 	},
 
 	// Projects Configuration
-	projects: [auth, finditWebFrontend, findit, networkScanner, portfolio, vdShoppers],
+	projects: [
+		auth,
+		finditWebFrontend,
+		findit,
+		networkScanner,
+		pentestMcpServer,
+	],
 } as const;

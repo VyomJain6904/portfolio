@@ -211,7 +211,7 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
 				x: Math.floor(window.innerWidth * 0.1),
 				y: Math.floor(window.innerHeight * 0.1),
 			}}
-			initialSize={{ width: 700, height: 500 }}
+			initialSize={{ width: 1000, height: 600 }}
 			className="bg-black/90 backdrop-blur-sm"
 		>
 			<div className="p-1 text-gray-200 font-mono text-sm h-full flex flex-col overflow-hidden">
