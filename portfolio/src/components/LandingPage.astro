@@ -2,17 +2,12 @@
 export const prerender = false;
 import { getImage } from "astro:assets";
 import AppLayout from "../layouts/AppLayout";
-import w1 from "../assets/images/w1.png";
-import w2 from "../assets/images/w2.jpg";
-import w3 from "../assets/images/w3.jpeg";
-import w4 from "../assets/images/w4.png";
-import w5 from "../assets/images/w5.jpg";
-import w6 from "../assets/images/w6.png";
-import w7 from "../assets/images/w7.png";
-import w8 from "../assets/images/w8.png";
-import w9 from "../assets/images/w9.png";
+import mac from "../assets/images/mac.jpg";
+import mac1 from "../assets/images/mac1.jpg";
+import mac2 from "../assets/images/mac2.jpg";
+import mac3 from "../assets/images/mac3.jpg";
 
-const backgrounds = [w1, w2, w3, w4, w5, w6, w7, w8, w9];
+const backgrounds = [mac, mac1, mac2, mac3];
 
 function getRandomBackground() {
 	return `bg-${Math.floor(Math.random() * backgrounds.length) + 1}`;

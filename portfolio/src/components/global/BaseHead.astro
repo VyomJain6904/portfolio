@@ -2,27 +2,17 @@
 import "../../styles/global.css";
 import { AstroSeo } from "@astrolib/seo";
 import { getImage } from "astro:assets";
-import w1 from "../../assets/images/w1.png";
-import w2 from "../../assets/images/w2.jpg";
-import w3 from "../../assets/images/w3.jpeg";
-import w4 from "../../assets/images/w4.png";
-import w5 from "../../assets/images/w5.jpg";
-import w6 from "../../assets/images/w6.png";
-import w7 from "../../assets/images/w7.png";
-import w8 from "../../assets/images/w8.png";
-import w9 from "../../assets/images/w9.png";
+import mac from "../../assets/images/mac.jpg";
+import mac1 from "../../assets/images/mac1.jpg";
+import mac2 from "../../assets/images/mac2.jpg";
+import mac3 from "../../assets/images/mac3.jpg";
 import { userConfig } from "../../config/userConfig";
 
 const backgrounds = await Promise.all([
-	getImage({ src: w1, width: 3500 }),
-	getImage({ src: w2, width: 3500 }),
-	getImage({ src: w3, width: 3500 }),
-	getImage({ src: w4, width: 3500 }),
-	getImage({ src: w5, width: 3500 }),
-	getImage({ src: w6, width: 3500 }),
-	getImage({ src: w7, width: 3500 }),
-	getImage({ src: w8, width: 3500 }),
-	getImage({ src: w9, width: 3500 }),
+	getImage({ src: mac, width: 3500 }),
+	getImage({ src: mac1, width: 3500 }),
+	getImage({ src: mac2, width: 3500 }),
+	getImage({ src: mac3, width: 3500 }),
 ]);
 ---
 
